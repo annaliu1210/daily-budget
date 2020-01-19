@@ -68,17 +68,17 @@ def send_email(table_list):
 
 
 def create_html_table(key, items):
-    final_html = ' '
+    html = '<table>'
+    html += '<caption>{}</caption>'.format(key)
+    html += '<th>Item</th>'
+    html += '<th>Price</th></tr>'
     for data in items:
-        html = '<table><tr>'
         item = data['item']
         price = data['price']
-        html += '<p>{}</p>'.format(key)
-        html += '<th>{}</th>'.format(item)
-        html += '<th>{}</th>'.format(price)
-        html += '</tr></table><br>'
-        final_html += html
-    return final_html
+        html += '<tr><td>{}</td>'.format(item)
+        html += '<td>{}</td></tr>'.format(price)
+    html += '</table><br>'
+    return html
 
 
 def daily_budget():
